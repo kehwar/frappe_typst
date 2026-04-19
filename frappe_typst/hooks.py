@@ -8,7 +8,7 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["kehwar/frappe"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -238,6 +238,21 @@ app_license = "mit"
 # Automatically update python controller files with type annotations for this app.
 # export_python_type_annotations = True
 
+# ---------------------------------------------------------------------------
+# Typst hooks
+# ---------------------------------------------------------------------------
+
+after_install = ["frappe_typst.utils.setup.install"]
+before_uninstall = ["frappe_typst.utils.setup.uninstall"]
+
+get_print_format_template = [
+    "frappe_typst.utils.print_format.get_print_format_template"
+]
+pdf_generator = ["frappe_typst.utils.print_format.pdf_generator"]
+
+page_js = {"print": "public/js/print_typst_view.js"}
+doctype_js = {"Print Format": "public/js/print_format_typst.js"}
+
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
@@ -246,4 +261,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
