@@ -102,4 +102,5 @@ def _save_options(fieldname: str, options: list[str]) -> None:
         property="options",
         value="\n".join(options),
         property_type="Text",
+        validate_fields_for_doctype=False,
     )
